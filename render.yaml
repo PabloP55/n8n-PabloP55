@@ -2,9 +2,18 @@ services:
   - type: web
     name: n8n
     env: node
-    plan: free
+    repo: https://github.com/PabloP55/n8n-PabloP55
+    branch: master
     buildCommand: npm install
-    startCommand: npx n8n
+    startCommand: n8n start
     envVars:
-      - key: NODE_VERSION
-        value: 20.19.0
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: true
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: admin1234
+      - key: WEBHOOK_URL
+        value: https://n8n-qeo8.onrender.com/
+      - key: GENERIC_TIMEZONE
+        value: Europe/Madrid
